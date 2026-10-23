@@ -1,0 +1,10 @@
+/home/fog/.config/nixpkgs/overlays
+/home/fog/.config/nixpkgs/overlays.nix
+/home/fog/lab/neoforge-lab/.devenv/bootstrap/bootstrapLib.nix
+/home/fog/lab/neoforge-lab/.devenv/bootstrap/default.nix
+/home/fog/lab/neoforge-lab/.devenv/bootstrap/resolve-lock.nix
+/home/fog/lab/neoforge-lab/.env
+/home/fog/lab/neoforge-lab/devenv.local.nix
+/home/fog/lab/neoforge-lab/devenv.lock
+/home/fog/lab/neoforge-lab/devenv.nix
+/run/user/1000/devenv-afc0045/processes/native-manager.pid
