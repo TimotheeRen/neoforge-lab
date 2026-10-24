@@ -16,5 +16,6 @@ public class ExampleMod {
   public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
     LOGGER.info("Mod initializing");
     ModItems.ITEMS.register(modEventBus);
+    ModItems.DATA_COMPONENTS.register(modEventBus);
   }
 }
