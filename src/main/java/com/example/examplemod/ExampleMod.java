@@ -4,8 +4,15 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CookingFuel;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.fml.ModContainer;
 
 @Mod(ExampleMod.MODID)
@@ -17,5 +24,16 @@ public class ExampleMod {
     LOGGER.info("Mod initializing");
     ModItems.ITEMS.register(modEventBus);
     ModItems.DATA_COMPONENTS.register(modEventBus);
+
+    modEventBus.addListener(ExampleMod::modifyComponents);
+  }
+
+  @SubscribeEvent
+  public static void modifyComponents(ModifyDefaultComponentsEvent event) {
+    event.modify(Items.TNT, (components, context, item) -> {
+      components.set(DataComponents.MAX_STACK_SIZE, 8);
+      components.set(DataComponents.COOKING_FUEL,
+          new CookingFuel(new ResolvableInt.Constant(20 * 5), new ResolvableFloat.Constant(1F)));
+    });
   }
 }
