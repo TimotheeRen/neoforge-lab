@@ -45,6 +45,12 @@ public class ModItems {
       event.accept(new ItemStack(TURKEY.get()));
     } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
       event.accept(new ItemStack(EMERALD.get()));
+    } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+      event.accept(new ItemStack(SkyEquipments.SKY_SWORD.get()));
+      event.accept(new ItemStack(SkyEquipments.SKY_HELMET.get()));
+      event.accept(new ItemStack(SkyEquipments.SKY_CHESTPLATE.get()));
+      event.accept(new ItemStack(SkyEquipments.SKY_LEGGINGS.get()));
+      event.accept(new ItemStack(SkyEquipments.SKY_BOOTS.get()));
     }
   }
 }

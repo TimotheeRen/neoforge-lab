@@ -1,5 +1,10 @@
 {
   "item.examplemod.emerald": "Emerald",
   "item.examplemod.egg": "Egg",
-  "item.examplemod.turkey": "Turkey"
+  "item.examplemod.turkey": "Turkey",
+  "item.examplemod.sky_sword": "Sky Sword",
+  "item.examplemod.sky_helmet": "Sky Helmet",
+  "item.examplemod.sky_chestplate": "Sky Chestplate",
+  "item.examplemod.sky_leggings": "Sky Leggings",
+  "item.examplemod.sky_boots": "Sky Boots"
 }

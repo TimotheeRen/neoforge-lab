@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "examplemod:sky"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "examplemod:sky"
+      }
+    ]
+  }
+}
