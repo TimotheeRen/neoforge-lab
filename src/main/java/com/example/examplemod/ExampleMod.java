@@ -26,6 +26,7 @@ public class ExampleMod {
     ModItems.DATA_COMPONENTS.register(modEventBus);
 
     modEventBus.addListener(ExampleMod::modifyComponents);
+    modEventBus.addListener(ModItems::addCreativeTab);
   }
 
   @SubscribeEvent
