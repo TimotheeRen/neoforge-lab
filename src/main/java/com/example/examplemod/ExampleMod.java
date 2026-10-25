@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CookingFuel;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableIn
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.fml.ModContainer;
 
@@ -27,9 +29,11 @@ public class ExampleMod {
 
     ModItems.ITEMS.register(modEventBus);
     ModItems.DATA_COMPONENTS.register(modEventBus);
+    ModEntities.ENTITIES.register(modEventBus);
 
     modEventBus.addListener(ExampleMod::modifyComponents);
     modEventBus.addListener(ModItems::addCreativeTab);
+    modEventBus.addListener(ExampleMod::registerEntityRenderers);
   }
 
   @SubscribeEvent
@@ -39,5 +43,10 @@ public class ExampleMod {
       components.set(DataComponents.COOKING_FUEL,
           new CookingFuel(new ResolvableInt.Constant(20 * 5), new ResolvableFloat.Constant(1F)));
     });
+  }
+
+  @SubscribeEvent
+  public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+    event.registerEntityRenderer(ModEntities.WANDERER.get(), NoopRenderer::new);
   }
 }
