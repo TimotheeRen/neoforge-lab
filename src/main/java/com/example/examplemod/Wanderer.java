@@ -10,6 +10,8 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.cubemob.Slime;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -38,5 +40,7 @@ public class Wanderer extends PathfinderMob {
     this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1.0D));
     this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
+    this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Slime.class, true));
+    this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Warden.class, true));
   }
 }

@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -38,6 +37,7 @@ public class ExampleMod {
     modEventBus.addListener(ModItems::addCreativeTab);
     modEventBus.addListener(ExampleMod::registerEntityRenderers);
     modEventBus.addListener(ExampleMod::createDefaultAttributes);
+    modEventBus.addListener(ExampleMod::registerLayerDefinitions);
   }
 
   @SubscribeEvent
@@ -51,7 +51,12 @@ public class ExampleMod {
 
   @SubscribeEvent
   public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-    event.registerEntityRenderer(ModEntities.WANDERER.get(), NoopRenderer::new);
+    event.registerEntityRenderer(ModEntities.WANDERER.get(), WandererRender::new);
+  }
+
+  @SubscribeEvent
+  public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+    event.registerLayerDefinition(ModEntities.WANDERER_LAYER, WandererModel::createBodyLayer);
   }
 
   @SubscribeEvent
@@ -60,7 +65,7 @@ public class ExampleMod {
         .add(Attributes.MAX_HEALTH, 50)
         .add(Attributes.FOLLOW_RANGE, 30)
         .add(Attributes.ATTACK_DAMAGE, 5)
-        .add(Attributes.MOVEMENT_SPEED, 0.5)
+        .add(Attributes.MOVEMENT_SPEED, 0.4)
         .build());
   }
 }
