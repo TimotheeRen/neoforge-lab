@@ -10,5 +10,5 @@ public class ModEntities {
   public static final DeferredRegister.Entities ENTITIES = DeferredRegister.createEntities(ExampleMod.MODID);
 
   public static final Supplier<EntityType<Wanderer>> WANDERER = ENTITIES.registerEntityType("wanderer", Wanderer::new,
-      MobCategory.MISC, builder -> builder.sized(2.0f, 2.0f));
+      MobCategory.CREATURE, builder -> builder.sized(1.0f, 2.0f));
 }

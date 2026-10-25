@@ -6,16 +6,19 @@ import com.mojang.logging.LogUtils;
 
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
-import net.neoforged.fml.ModContainer;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
 @Mod(ExampleMod.MODID)
 public class ExampleMod {
@@ -34,6 +37,7 @@ public class ExampleMod {
     modEventBus.addListener(ExampleMod::modifyComponents);
     modEventBus.addListener(ModItems::addCreativeTab);
     modEventBus.addListener(ExampleMod::registerEntityRenderers);
+    modEventBus.addListener(ExampleMod::createDefaultAttributes);
   }
 
   @SubscribeEvent
@@ -48,5 +52,15 @@ public class ExampleMod {
   @SubscribeEvent
   public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
     event.registerEntityRenderer(ModEntities.WANDERER.get(), NoopRenderer::new);
+  }
+
+  @SubscribeEvent
+  public static void createDefaultAttributes(EntityAttributeCreationEvent event) {
+    event.put(ModEntities.WANDERER.get(), Mob.createMobAttributes()
+        .add(Attributes.MAX_HEALTH, 50)
+        .add(Attributes.FOLLOW_RANGE, 30)
+        .add(Attributes.ATTACK_DAMAGE, 5)
+        .add(Attributes.MOVEMENT_SPEED, 0.5)
+        .build());
   }
 }
