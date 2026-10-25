@@ -1,6 +1,9 @@
-package com.example.examplemod;
+package com.example.examplemod.entities;
 
 import net.minecraft.client.renderer.entity.MobRenderer;
+
+import com.example.examplemod.ExampleMod;
+
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.resources.Identifier;

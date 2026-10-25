@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.example.examplemod.entities;
 
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.item.ItemStackRenderState;

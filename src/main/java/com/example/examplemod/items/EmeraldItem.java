@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.example.examplemod.items;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;

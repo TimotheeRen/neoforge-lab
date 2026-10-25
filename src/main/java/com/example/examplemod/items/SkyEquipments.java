@@ -1,7 +1,9 @@
-package com.example.examplemod;
+package com.example.examplemod.items;
 
 import java.util.Map;
 import java.util.function.Supplier;
+
+import com.example.examplemod.ExampleMod;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;

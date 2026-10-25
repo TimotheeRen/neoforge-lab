@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.example.examplemod.items;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,6 +1,8 @@
-package com.example.examplemod;
+package com.example.examplemod.entities;
 
 import java.util.function.Supplier;
+
+import com.example.examplemod.ExampleMod;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.Identifier;

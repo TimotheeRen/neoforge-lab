@@ -2,22 +2,14 @@ package com.example.examplemod;
 
 import org.slf4j.Logger;
 
+import com.example.examplemod.entities.ModEntities;
+import com.example.examplemod.items.ModItems;
+import com.example.examplemod.items.SkyEquipments;
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.CookingFuel;
-import net.minecraft.world.level.storage.loot.providers.number.floats.ResolvableFloat;
-import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
 @Mod(ExampleMod.MODID)
 public class ExampleMod {
@@ -32,40 +24,5 @@ public class ExampleMod {
     ModItems.ITEMS.register(modEventBus);
     ModItems.DATA_COMPONENTS.register(modEventBus);
     ModEntities.ENTITIES.register(modEventBus);
-
-    modEventBus.addListener(ExampleMod::modifyComponents);
-    modEventBus.addListener(ModItems::addCreativeTab);
-    modEventBus.addListener(ExampleMod::registerEntityRenderers);
-    modEventBus.addListener(ExampleMod::createDefaultAttributes);
-    modEventBus.addListener(ExampleMod::registerLayerDefinitions);
-  }
-
-  @SubscribeEvent
-  public static void modifyComponents(ModifyDefaultComponentsEvent event) {
-    event.modify(Items.TNT, (components, context, item) -> {
-      components.set(DataComponents.MAX_STACK_SIZE, 8);
-      components.set(DataComponents.COOKING_FUEL,
-          new CookingFuel(new ResolvableInt.Constant(20 * 5), new ResolvableFloat.Constant(1F)));
-    });
-  }
-
-  @SubscribeEvent
-  public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-    event.registerEntityRenderer(ModEntities.WANDERER.get(), WandererRender::new);
-  }
-
-  @SubscribeEvent
-  public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-    event.registerLayerDefinition(ModEntities.WANDERER_LAYER, WandererModel::createBodyLayer);
-  }
-
-  @SubscribeEvent
-  public static void createDefaultAttributes(EntityAttributeCreationEvent event) {
-    event.put(ModEntities.WANDERER.get(), Mob.createMobAttributes()
-        .add(Attributes.MAX_HEALTH, 50)
-        .add(Attributes.FOLLOW_RANGE, 30)
-        .add(Attributes.ATTACK_DAMAGE, 5)
-        .add(Attributes.MOVEMENT_SPEED, 0.4)
-        .build());
   }
 }

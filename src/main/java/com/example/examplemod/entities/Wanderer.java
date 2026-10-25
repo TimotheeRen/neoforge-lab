@@ -1,6 +1,8 @@
-package com.example.examplemod;
+package com.example.examplemod.entities;
 
 import javax.annotation.Nullable;
+
+import com.example.examplemod.items.ModItems;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;

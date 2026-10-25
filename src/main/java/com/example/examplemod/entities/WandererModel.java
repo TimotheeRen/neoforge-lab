@@ -1,4 +1,6 @@
-package com.example.examplemod;
+package com.example.examplemod.entities;
+
+import com.example.examplemod.ExampleMod;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
