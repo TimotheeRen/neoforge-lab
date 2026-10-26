@@ -38,4 +38,6 @@ public class ModItems {
           .sound(SoundEvents.ARMOR_EQUIP_CHAIN)
           .build()));
   public static final Supplier<BlockItem> MUD = ITEMS.registerSimpleBlockItem("mud_block", ModBlocks.MUD);
+  public static final Supplier<BlockItem> IRON_CHEST = ITEMS.registerSimpleBlockItem("iron_chest",
+      ModBlocks.IRON_CHEST);
 }
