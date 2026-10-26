@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "group": "misc",
+  "show_notification": true,
+  "ingredient": "examplemod:emerald",
+  "cookingtime": 100,
+  "experience": 10,
+  "result": {
+    "id": "minecraft:apple"
+  }
+}

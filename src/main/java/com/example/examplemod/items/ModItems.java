@@ -3,6 +3,7 @@ package com.example.examplemod.items;
 import java.util.function.Supplier;
 
 import com.example.examplemod.ExampleMod;
+import com.example.examplemod.blocks.ModBlocks;
 
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
@@ -35,4 +37,5 @@ public class ModItems {
           .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.STRENGTH, 600, 5)))
           .sound(SoundEvents.ARMOR_EQUIP_CHAIN)
           .build()));
+  public static final Supplier<BlockItem> MUD = ITEMS.registerSimpleBlockItem("mud_block", ModBlocks.MUD);
 }

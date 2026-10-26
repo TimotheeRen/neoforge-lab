@@ -23,6 +23,7 @@
     alsa-plugins
     libpulseaudio
     pipewire
+    nodejs
   ];
 
   env.LD_LIBRARY_PATH =

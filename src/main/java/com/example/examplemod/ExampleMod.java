@@ -2,6 +2,7 @@ package com.example.examplemod;
 
 import org.slf4j.Logger;
 
+import com.example.examplemod.blocks.ModBlocks;
 import com.example.examplemod.entities.ModEntities;
 import com.example.examplemod.items.ModItems;
 import com.example.examplemod.items.SkyEquipments;
@@ -22,6 +23,7 @@ public class ExampleMod {
     SkyEquipments.init();
 
     ModItems.ITEMS.register(modEventBus);
+    ModBlocks.BLOCKS.register(modEventBus);
     ModItems.DATA_COMPONENTS.register(modEventBus);
     ModEntities.ENTITIES.register(modEventBus);
   }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "examplemod:block/mud_block"
+    }
+  }
+}

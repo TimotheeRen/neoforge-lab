@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": "minecraft:stick",
+    "D": "examplemod:emerald"
+  },
+  "pattern": [
+    "DDD",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "examplemod:sky_sword"
+  }
+}
