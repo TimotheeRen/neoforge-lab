@@ -21,8 +21,10 @@ public class ModBlocks {
           .sound(SoundType.GRAVEL)
           .lightLevel(state -> 7)
           .setId(ResourceKey.create(Registries.BLOCK, registry))));
-
   public static DeferredBlock<IronChestEntityBlock> IRON_CHEST = BLOCKS.register("iron_chest",
       registry -> new IronChestEntityBlock(
+          BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, registry))));
+  public static DeferredBlock<ConverterBlock> CONVERTER = BLOCKS.register("converter",
+      registry -> new ConverterBlock(
           BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, registry))));
 }

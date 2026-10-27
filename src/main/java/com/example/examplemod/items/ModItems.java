@@ -40,4 +40,6 @@ public class ModItems {
   public static final Supplier<BlockItem> MUD = ITEMS.registerSimpleBlockItem("mud_block", ModBlocks.MUD);
   public static final Supplier<BlockItem> IRON_CHEST = ITEMS.registerSimpleBlockItem("iron_chest",
       ModBlocks.IRON_CHEST);
+  public static final Supplier<BlockItem> CONVERTER = ITEMS.registerSimpleBlockItem("converter",
+      ModBlocks.CONVERTER);
 }

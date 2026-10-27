@@ -7,6 +7,7 @@ import com.example.examplemod.blocks.ModBlocksEntities;
 import com.example.examplemod.entities.ModEntities;
 import com.example.examplemod.items.ModItems;
 import com.example.examplemod.items.SkyEquipments;
+import com.example.examplemod.menus.ModMenus;
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.IEventBus;
@@ -27,6 +28,7 @@ public class ExampleMod {
     ModBlocks.BLOCKS.register(modEventBus);
     ModBlocksEntities.BLOCK_ENTITIES_TYPES.register(modEventBus);
     ModItems.DATA_COMPONENTS.register(modEventBus);
+    ModMenus.MENU_TYPES.register(modEventBus);
     ModEntities.ENTITIES.register(modEventBus);
   }
 }
